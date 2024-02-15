@@ -1,0 +1,11 @@
+<h1>My posts</h1>
+ 
+ <ul>
+   <% for entry in @entries %>
+    <li>
+      <a href="/entry/<%= entry["id"] %>"><%= entry["Title"] %></a>
+    </li>
+   <% end %>
+</ul>
+
+<p><a href="/entry/new">New post</a></p>
