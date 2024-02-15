@@ -1,14 +1,15 @@
 <!-- Place details page -->
 
-<h1><%= @place["name"] %></h1>
+<h1>Entries from <%= @place["name"] %></h1>
 
 <ul>
   <% for entry in @entries %>
-    <li>
-      <a href="/entry/<%= entry["id"] %>">
-        <%= entry["title"] %>
-      </a>
-    </li>
+  <!-- Added some style elements to make it look a bit cleaner -->
+ <div style="margin-bottom: 20px;">
+    <h2><%= entry["title"] %></h2>
+    <h4 style="margin-top: -15px;"><%= entry["posted_on"] %></h4>
+    <p style="margin-top: -15px;"><%= entry["description"] %></p>
+  </div>
   <% end %>
 </ul>
 
@@ -18,7 +19,8 @@
 
 <p><a href="/places">Back to All Places</a></p>
 
-<form action="/places/<%= @place["id"] %>" method="post">
-  <input type="hidden" name="_method" value="delete">
+<!-- The normal form from the example in class was giving me a CSRF error, so I switched to this -->
+<%= form_with(url: "/places/#{@place['id']}", method: "delete") do %>
   <button>Delete Place</button>
-</form>
+<% end %>
+

@@ -1,4 +1,4 @@
-<h1>New Entry</h1>
+<h1>New Post: What were you up to in <%=@place["name"]%>?</h1>
 
 <%= form_with url: "/entries", method: "post" do |form| %>
 
@@ -8,7 +8,8 @@
   </p>
     <p>
     <%= form.label "description", "Description" %>
-    <%= form.text_field "description" %>
+    <!-- Made it a text area instead of text field to give more space -->
+    <%= form.text_area "description" %>
   </p>
   <p>
     <%= form.label "posted_on", "Date" %>

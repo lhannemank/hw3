@@ -25,6 +25,7 @@ class EntriesController < ApplicationController
     if @entry.save
       # redirect user
        redirect_to "/places/#{@entry["place_id"]}"
+       #this part below was added with ChatGPT's help after I received some errors
     else
       render :new
     end
