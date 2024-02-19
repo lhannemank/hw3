@@ -1,5 +1,7 @@
 <h1>New Post: What were you up to in <%=@place["name"]%>?</h1>
 
+<!-- The normal form from the example in class was giving me a CSRF error,
+even after I added the code from the announcement so I switched to this -->
 <%= form_with url: "/entries", method: "post" do |form| %>
 
   <p>
